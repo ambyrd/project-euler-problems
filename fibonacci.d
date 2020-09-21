@@ -10,4 +10,34 @@ By considering the terms in the Fibonacci sequence whose values do not exceed
 four million, find the sum of the even-valued terms.
 */
 
+import std.stdio;
 
+// Constructs a list of fibonnaci numbers with values under a given max
+int[] fib_up_to(int max) {
+    int[] result = [1, 1];  //initialize with first two numbers in sequence
+    int next = 2;
+    while(next <= max) {
+        result ~= next;
+        next = result[$ - 1] + result[$ - 2];
+    }
+
+    return result;
+}
+
+void main() {
+    auto under4m = fib_up_to(4_000_000);
+
+    /* Even numbers are regularly spaced in the Fibonacci sequence
+       (Odd, Odd, Even, Odd, Odd, Even, Odd, Odd, Even, ...)
+       so we could probably do this sum without doing % 2 on each 
+       number--but this works well enough
+    */
+    int sum = 0;
+    foreach(n; under4m) {
+        if (n % 2 == 0) {
+            sum += n;
+        }
+    }
+
+    writefln("Sum of even Fibonacci numbers under 4 million is %s", sum);
+}
