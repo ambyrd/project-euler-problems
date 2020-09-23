@@ -24,6 +24,19 @@ int[] fib_up_to(int max) {
     return result;
 }
 
+// Testing fib_up_to()
+unittest {
+    // Simple test to start off with
+    auto upto10 = fib_up_to(10);
+    assert(upto10 == [1, 1, 2, 3, 5, 8]);
+    // Base case of max=1; should return the initial list of [1, 1]
+    auto upto1 = fib_up_to(1);
+    assert(upto1 == [1, 1]);
+    // Testing with an exact fibonacci number as max; max *should* be included in result
+    auto upto8 = fib_up_to(8);
+    assert(upto8 == [1, 1, 2, 3, 5, 8]);
+}
+
 void main() {
     auto under4m = fib_up_to(4_000_000);
 
