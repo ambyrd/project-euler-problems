@@ -20,9 +20,10 @@ int sum_multiples(int max) {
 }
 
 unittest {
-    // Example from problem description
+    writeln("Example from problem description...");
     assert(sum_multiples(10) == 23);
-    // Base cases (less than 3)--should return 0
+
+    writeln("Base cases (less than 3)--should return 0...");
     assert(sum_multiples(2) == 0);
     assert(sum_multiples(1) == 0);
 }
