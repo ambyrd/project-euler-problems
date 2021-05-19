@@ -16,11 +16,15 @@ fib n | n == 1    = 1
 fibs :: [Integer]
 fibs = map fib [1..]
 
+-- More efficient definition of fibs; avoids exponential recursive calls
+fibs' :: [Integer]
+fibs' = 1 : 1 : zipWith (+) fibs' (tail fibs')
+
 maxterm :: Integer
 maxterm = 4000000
 
 result :: Integer
-result = sum [x | x <- (takeWhile (< maxterm) fibs), x `mod` 2 == 0]
+result = sum [x | x <- (takeWhile (< maxterm) fibs'), x `mod` 2 == 0]
 
 main :: IO ()
 main = do putStr "Sum of even-valued Fibonacci terms under 4 million = "
