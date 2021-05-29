@@ -11,5 +11,5 @@ series_sum :: [Integer] -> Integer
 series_sum = sum . map selfpow
 
 main :: IO ()
-main = do putStrLn "Last ten digits of the series 1^1 + 2^2 + 3^3 + ... + 1000^1000:"
-          putStrLn (show (series_sum [1..1000] `mod` 10000000000))  --using modulo to extract the last 10 digits
+main = putStrLn "Last ten digits of the series 1^1 + 2^2 + 3^3 + ... + 1000^1000:"
+    >> putStrLn (show (series_sum [1..1000] `mod` 10000000000))  --using modulo to extract the last 10 digits

@@ -27,5 +27,4 @@ result :: Integer
 result = sum [x | x <- (takeWhile (< maxterm) fibs'), x `mod` 2 == 0]
 
 main :: IO ()
-main = do putStr "Sum of even-valued Fibonacci terms under 4 million = "
-          putStrLn (show (result))
+main = putStrLn ("Sum of even-valued Fibonacci terms under 4 million = " ++ show (result))

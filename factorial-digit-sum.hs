@@ -19,9 +19,6 @@ fact_sum :: Integer -> Integer
 fact_sum = sum_digits . fact
 
 main :: IO ()
-main = do putStr "10! = "
-          putStrLn (show (fact 10))
-          putStr "Sum of the digits in 10! = "
-          putStrLn (show (fact_sum 10))
-          putStr "Sum of the digits in 100! = "
-          putStrLn (show (fact_sum 100))
+main = putStrLn ("10! = " ++ show (fact 10))
+    >> putStrLn ("Sum of the digits in 10! = " ++ show (fact_sum 10))
+    >> putStrLn ("Sum of the digits in 100! = " ++ show (fact_sum 100))
